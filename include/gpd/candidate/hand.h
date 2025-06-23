@@ -119,7 +119,7 @@ class Hand {
    * \param filename location of the file
    * \param hands the list of grasps
    */
-  void writeHandsToFile(const std::string &filename,
+  static void writeHandsToFile(const std::string &filename,
                         const std::vector<Hand> &hands) const;
 
   /**

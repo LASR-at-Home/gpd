@@ -44,7 +44,7 @@ void Hand::calculateGraspPositions(const FingerHand &finger_hand) {
   position_ = getFrame() * pos_bottom + sample_;
 }
 
-void Hand::writeHandsToFile(const std::string &filename,
+static void Hand::writeHandsToFile(const std::string &filename,
                             const std::vector<Hand> &hands) const {
   std::ofstream myfile;
   myfile.open(filename.c_str());
