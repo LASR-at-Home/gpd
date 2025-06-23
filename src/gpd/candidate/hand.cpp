@@ -51,7 +51,7 @@ static void Hand::writeHandsToFile(const std::string &filename,
 
   for (int i = 0; i < hands.size(); i++) {
     std::cout << "Hand " << i << std::endl;
-    print();
+    //print();
 
     myfile << vectorToString(hands[i].getPosition())
            << vectorToString(hands[i].getAxis())
