@@ -120,7 +120,7 @@ class Hand {
    * \param hands the list of grasps
    */
   static void writeHandsToFile(const std::string &filename,
-                        const std::vector<Hand> &hands) const;
+                        const std::vector<Hand> &hands);
 
   /**
    * \brief Print a description of the grasp candidate to the systen's standard
