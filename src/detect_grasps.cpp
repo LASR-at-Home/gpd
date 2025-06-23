@@ -80,7 +80,9 @@ int DoMain(int argc, char *argv[]) {
   }
 
   // Detect grasp poses.
-  detector.detectGrasps(cloud);
+  std::vector<Hand> grasps = detector.detectGrasps(cloud);
+
+  Hand::writeHandsToFile(std::string("grasps.txt"), grasps);
 
   return 0;
 }
