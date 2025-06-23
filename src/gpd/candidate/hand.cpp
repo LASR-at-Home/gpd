@@ -44,7 +44,7 @@ void Hand::calculateGraspPositions(const FingerHand &finger_hand) {
   position_ = getFrame() * pos_bottom + sample_;
 }
 
-static void Hand::writeHandsToFile(const std::string &filename,
+void Hand::writeHandsToFile(const std::string &filename,
                             const std::vector<Hand> &hands) {
   std::ofstream myfile;
   myfile.open(filename.c_str());
@@ -77,7 +77,7 @@ void Hand::print() const {
   std::cout << " center: " << getTop() << std::endl;
 }
 
-static std::string Hand::vectorToString(const Eigen::VectorXd &v) {
+std::string Hand::vectorToString(const Eigen::VectorXd &v) {
   std::string s = "";
   for (int i = 0; i < v.rows(); i++) {
     s += std::to_string(v(i)) + ",";
