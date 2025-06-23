@@ -50,13 +50,13 @@ static void Hand::writeHandsToFile(const std::string &filename,
   myfile.open(filename.c_str());
 
   for (int i = 0; i < hands.size(); i++) {
-    std::cout << "Hand " << i << std::endl;
+    // std::cout << "Hand " << i << std::endl;
     //print();
 
-    myfile << vectorToString(hands[i].getPosition())
-           << vectorToString(hands[i].getAxis())
-           << vectorToString(hands[i].getApproach())
-           << vectorToString(hands[i].getBinormal())
+    myfile << Hand::vectorToString(hands[i].getPosition())
+           << Hand::vectorToString(hands[i].getAxis())
+           << Hand::vectorToString(hands[i].getApproach())
+           << Hand::vectorToString(hands[i].getBinormal())
            << std::to_string(hands[i].getGraspWidth()) << "\n";
   }
 
@@ -77,7 +77,7 @@ void Hand::print() const {
   std::cout << " center: " << getTop() << std::endl;
 }
 
-std::string Hand::vectorToString(const Eigen::VectorXd &v) const {
+static std::string Hand::vectorToString(const Eigen::VectorXd &v) {
   std::string s = "";
   for (int i = 0; i < v.rows(); i++) {
     s += std::to_string(v(i)) + ",";

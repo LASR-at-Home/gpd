@@ -262,7 +262,7 @@ class Hand {
    * \param v the vector
    * \return the string
    */
-  std::string vectorToString(const Eigen::VectorXd &v) const;
+  static std::string vectorToString(const Eigen::VectorXd &v);
 
   Eigen::Vector3d position_;  ///< grasp position (bottom center of robot hand)
   Eigen::Matrix3d orientation_;  ///< grasp orientation (rotation of robot hand)
