@@ -80,7 +80,14 @@ int DoMain(int argc, char *argv[]) {
   }
 
   // Detect grasp poses.
-  std::vector<std::unique_ptr<gpd::candidate::Hand>> grasps = detector.detectGrasps(cloud);
+  std::vector<std::unique_ptr<gpd::candidate::Hand>> grasp_ptrs = detector.detectGrasps(cloud);
+
+
+  std::vector<gpd::candidate::Hand> grasps;
+  grasps.reserve(grasp_ptrs.size());
+  for (const auto& grasp_ptr : grasp_ptrs) {
+      grasps.push_back(*grasp_ptr);
+  }
 
   gpd::candidate::Hand::writeHandsToFile(std::string("grasps.txt"), grasps);
 
